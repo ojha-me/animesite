@@ -3,3 +3,8 @@
     align-items: center;
     gap: 50px;
 }
+
+.search-box{
+    
+    flex: 1;
+}

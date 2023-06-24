@@ -3,14 +3,14 @@ import "./App.css";
 // import RecentEpisodes from "./components/RecentEpisodes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AnimeInfo from "./components/AnimeInfo";
-import SearchAnime from "./components/SearchAnime";
 import SearchResults from "./components/SearchResults";
 import AnimeStreaming from "./components/AnimeStreaming";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
-      <SearchAnime />
+      <NavBar />
       <Routes>
         <Route path="/" element={<TopAiring />} />
         <Route path="stream-anime/:episodeId" element={<AnimeStreaming />} />

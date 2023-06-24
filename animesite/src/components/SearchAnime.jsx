@@ -16,6 +16,11 @@ const SearchAnime = () => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
         />
         <button onClick={handleSearch}>Search</button>
       </div>
