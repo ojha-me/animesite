@@ -1,0 +1,14 @@
+.navbar{
+    display: flex;
+    background-color: lightpink;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    height: 50px;
+}
+.navbar-logo h1{
+    height: 30px;
+    font-size: large;
+    font-weight: 800;
+}
