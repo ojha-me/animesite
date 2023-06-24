@@ -1,4 +1,3 @@
-import React from "react";
 import SearchAnime from "./SearchAnime";
 import "../styles/Navbar.css";
 
