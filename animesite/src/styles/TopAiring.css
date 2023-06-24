@@ -1,0 +1,8 @@
+.anime-card-container{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 50px;
+
+}
