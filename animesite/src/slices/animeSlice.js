@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   fetchAnime,
@@ -43,6 +44,7 @@ export const fetchTopAiringList = createAsyncThunk(
   async (page, { dispatch }) => {
     dispatch(increasePageNumber());
     const response = await fetchTopAiring(page);
+    console.log(response);
     return response;
   }
 );
@@ -103,7 +105,19 @@ const animeSlice = createSlice({
       })
       .addCase(fetchTopAiringList.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.topAiring = action.payload;
+        const { currentPage, hasNextPage, results } = action.payload;
+        const prevResult = state?.topAiring?.results;
+        state.topAiring = {
+          currentPage,
+          hasNextPage,
+          // results: prevResult ? [...prevResult, ...results] : [...results],
+        };
+        state.topAiring.results = prevResult
+          ? [...prevResult, ...results]
+          : [...results];
+        // console.log("action.payload", action.payload);
+        // console.log("top_airing", state.topAiring);
+
         state.hasNextPage = action.payload.hasNextPage;
       })
       .addCase(fetchTopAiringList.rejected, (state, action) => {

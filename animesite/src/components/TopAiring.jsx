@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { fetchTopAiringList } from "../slices/animeSlice";
 import { useSelector, useDispatch } from "react-redux";
 import AnimeCard from "./AnimeCard";
@@ -13,6 +13,8 @@ const TopAiring = () => {
   const error = useSelector((state) => state.anime.error);
   const hasNextPage = useSelector((state) => state.anime.hasNextPage);
   const currentPage = useSelector((state) => state.anime.currentPage);
+  const [cardCount, setcardCount] = useState(10);
+
   useEffect(() => {
     dispatch(fetchTopAiringList());
   }, [dispatch]);
@@ -29,6 +31,19 @@ const TopAiring = () => {
   if (status === "failed") {
     return <div>Error: {error}</div>;
   }
+
+  const handleScroll = () => {
+    const endOfPage =
+      window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+
+    if (endOfPage) {
+      console.log("dsada");
+      dispatch(fetchTopAiringList(currentPage + 1));
+      setcardCount(cardCount + 10);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
   return (
     <div className="anime-card-container">
       {displayingAnimes?.map((displayingAnimes) => (

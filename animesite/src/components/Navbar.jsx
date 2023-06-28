@@ -1,4 +1,3 @@
-import SearchAnime from "./SearchAnime";
 import "../styles/Navbar.css";
 
 const NavBar = () => {
@@ -6,9 +5,13 @@ const NavBar = () => {
     <>
       <div className="navbar">
         <div className="navbar-logo">
-          <h1 className="navbar-name">AddFree Anime</h1>
+          <h1>AddFree Anime</h1>
         </div>
-        <SearchAnime />
+        <div className="nav-items">
+          <h2>Home</h2>
+          <h2>Top Airing</h2>
+          <h2>Most Recents</h2>
+        </div>
       </div>
     </>
   );

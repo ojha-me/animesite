@@ -1,0 +1,33 @@
+.hero-section {
+    object-fit: contain;
+    height: 85vh;
+    background-color: black;
+}
+.content{
+    display: flex;
+    padding-top: 140px;
+    padding-left: 15%;
+    flex-direction: column;
+    gap:10px;
+}
+.content h2 {
+
+    color: white;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 32px;
+
+}
+.content h1 {
+
+    color: white;
+    font-size: 65px;
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: -1.5px;
+    width: 571px;
+
+}
+
