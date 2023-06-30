@@ -7,9 +7,12 @@
     border:  none ;
     height: 5vh;
     border-radius: 2em;
+    background-color: white;
+
 }
 .search-icon{
-    background-color: red;
+    background-color: red; 
     width: 35px;
     border-radius: .75em;
+    
 }

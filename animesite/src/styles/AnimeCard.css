@@ -1,9 +1,11 @@
-.anime-card{
+.anime-card {
   display: flex;
   flex-direction: column-reverse;
-  background-color: black;
-  color :white;
-  width:20vw;
+  background-color: #222831;
+  color: white;
+  width: 20vw;
+  height: 60vh;
+
   gap: 4px;
   justify-content: center;
   align-items: center;
@@ -11,18 +13,23 @@
   border-radius: 16px;
   transition: transform 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Added box-shadow */
+  position: relative;
 }
-.anime-card__image{
+.anime-card__image {
+  background-color: #222831;
   padding-top: 10px;
   height: 35vh;
   object-fit: contain;
 }
-.anime-card__title{
+.anime-card__title {
   padding-left: 8px;
   padding-right: 8px;
+  background-color: #222831;
+  text-overflow:clip;
 }
 
 .anime-card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Added hover box-shadow */
 }
+

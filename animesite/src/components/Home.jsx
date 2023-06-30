@@ -1,7 +1,7 @@
 import Hero from "./Hero";
-import TopAiring from "./TopAiring";
-import RecentEpisodes from "./RecentEpisodes";
-
+import HomeTopAiringSlider from "./HomeTopAiringSlider";
+import HomeRecentEpisodes from "./HomeRececntEpisodes";
+import Footer from "./Footer";
 import "../styles/Home.css";
 
 const Home = () => {
@@ -11,11 +11,15 @@ const Home = () => {
 
       <div className="home-content">
         <div className="top-airing">
-          <TopAiring />
+          <HomeTopAiringSlider />
         </div>
         <div className="recent-episodes">
-          <RecentEpisodes />
+          <HomeRecentEpisodes />
         </div>
+      </div>
+
+      <div className="footer">
+        <Footer />
       </div>
     </>
   );

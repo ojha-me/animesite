@@ -10,19 +10,19 @@
   .anime-info-card h1 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #000;
+    color: white;
   }
   
   .anime-info-card p {
     margin-bottom: 5px;
-    color: #000;
+    color: white;
   }
   
   .anime-info-card h2 {
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: #000;
+    color: white;
   }
   
   .anime-info-card .episode-container {
@@ -36,7 +36,7 @@
   
   .anime-info-card .episode-container p {
     margin-bottom: 5px;
-    color: #000;
+    color:white;
   }
   
   .anime-info-card .episode-container p:first-child {
@@ -46,5 +46,6 @@
   .anime-info-card .episode-container p:last-child {
     margin-bottom: 0;
   }
+  
   
   

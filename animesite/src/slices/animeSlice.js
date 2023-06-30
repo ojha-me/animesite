@@ -11,9 +11,9 @@ import {
 const initialState = {
   animeList: [],
   recentEpisodes: [],
-  topAiring: [],
+  topAiring: { currentPage: undefined, hasNextPage: undefined, results: [] },
   hasNextPage: false,
-  currentPage: 1,
+  currentPage: 0,
   animeInfo: null,
   episodeStream: null,
   status: "idle",
@@ -33,18 +33,14 @@ export const fetchRecentEpisodesList = createAsyncThunk(
   "anime/fetchRecentEpisodesList",
   async (page, { dispatch }) => {
     const response = await fetchRecentEpisodes(page);
-    dispatch(increasePageNumber);
-
     return response;
   }
 );
 
 export const fetchTopAiringList = createAsyncThunk(
   "anime/fetchTopAiringList",
-  async (page, { dispatch }) => {
-    dispatch(increasePageNumber());
+  async (page) => {
     const response = await fetchTopAiring(page);
-    console.log(response);
     return response;
   }
 );
@@ -64,18 +60,10 @@ export const fetchEpisodeStreamById = createAsyncThunk(
     return response;
   }
 );
-
 const animeSlice = createSlice({
   name: "anime",
   initialState,
-  reducers: {
-    increasePageNumber: (state) => {
-      state.currentPage += 1;
-    },
-    decreasePageNumber: (state) => {
-      state.currentPage -= 1;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchAnimeList.pending, (state) => {
@@ -94,7 +82,10 @@ const animeSlice = createSlice({
       })
       .addCase(fetchRecentEpisodesList.fulfilled, (state, action) => {
         state.status = "succeeded";
+        state.currentPage = +action.payload.currentPage;
         state.recentEpisodes = action.payload;
+        state.hasNextPage = action.payload.hasNextPage;
+        state.recentEpisodes.currentPage = action.payload.currentPage;
       })
       .addCase(fetchRecentEpisodesList.rejected, (state, action) => {
         state.status = "failed";
@@ -105,19 +96,9 @@ const animeSlice = createSlice({
       })
       .addCase(fetchTopAiringList.fulfilled, (state, action) => {
         state.status = "succeeded";
-        const { currentPage, hasNextPage, results } = action.payload;
-        const prevResult = state?.topAiring?.results;
-        state.topAiring = {
-          currentPage,
-          hasNextPage,
-          // results: prevResult ? [...prevResult, ...results] : [...results],
-        };
-        state.topAiring.results = prevResult
-          ? [...prevResult, ...results]
-          : [...results];
-        // console.log("action.payload", action.payload);
-        // console.log("top_airing", state.topAiring);
-
+        state.currentPage = +action.payload.currentPage;
+        state.topAiring.currentPage = action.payload.currentPage;
+        state.topAiring.results = action.payload.results;
         state.hasNextPage = action.payload.hasNextPage;
       })
       .addCase(fetchTopAiringList.rejected, (state, action) => {
@@ -150,4 +131,3 @@ const animeSlice = createSlice({
 });
 
 export default animeSlice.reducer;
-export const { increasePageNumber, decreasePageNumber } = animeSlice.actions;
