@@ -2,11 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-<<<<<<< HEAD
 "on":
-=======
-'on':
->>>>>>> 75df8d4db892603f411e09df8b4830102a3e6333
   push:
     branches:
       - main
@@ -15,18 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-<<<<<<< HEAD
       - run: npm install && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_ADDFREE_ANIME }}"
-=======
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ADDFREE_ANIME }}'
->>>>>>> 75df8d4db892603f411e09df8b4830102a3e6333
           channelId: live
           projectId: addfree-anime
