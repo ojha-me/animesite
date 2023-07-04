@@ -1,14 +1,31 @@
 .navbar{
+    border: 1px solid black;
     display: flex;
-    background-color: lightpink;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 40px 80px;
     align-items: center;
-    height: 50px;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: #0A070B;
 }
-.navbar-logo h1{
-    height: 30px;
-    font-size: large;
-    font-weight: 800;
+.navbar-logo{
+    color:#B542AD
 }
+
+.navbar-logo :hover{
+    cursor: pointer;
+}
+.nav-items{
+    display: flex;
+    margin-left: 20%;
+    gap : 40px;
+    color: var(--black-color-737174, #807E81);
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 20px;
+}
+.nav-items :hover{
+    cursor: pointer;
+    color:aliceblue
+}
+

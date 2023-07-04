@@ -1,4 +1,4 @@
-.anime-card-container{
+.search-anime-card-container{
     padding-left: 2px;
     padding-right: 2px;
     overflow-x: hidden;
@@ -9,9 +9,5 @@
     margin-right: 3%;
 }
 
-.top-airing-buttons-container{
-    position: absolute;
-    margin:20px;
-    left:40%;
-}
+
 

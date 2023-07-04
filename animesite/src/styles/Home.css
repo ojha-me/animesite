@@ -1,0 +1,23 @@
+.home-content{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    
+}
+.footer{
+    display: flex;
+padding: 80px 0px;
+flex-direction: column;
+align-items: center;
+gap: 52px;
+align-self: stretch;
+}
+
+.footer h4{
+    color: var(--ffffff, #FFF);
+font-size: 16px;
+font-family: Poppins;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
+}
